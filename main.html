@@ -10,26 +10,21 @@
 	<script>
 		function secondHighest(arr) {
 			//Write your code here
-			if(arr.length === 0 || arr.length === 1) {
-				return "-Infinity";
-			}
+	if (arr.length < 2) return -Infinity;
 
-			let max = arr[0];
-			let sec_max = arr[0];
+	// Convert input to numbers
+	arr = arr.map(Number);
 
-			for(let i = 1; i < arr.length; i++) {
-				if(arr[i] === arr[i + 1]) {
-					return "-Infinity";
-				}
-				else if(arr[i] > max) {
-					sec_max = max;
-					max = arr[i];
-				}
-				
-			}
-			return sec_max;
-			
-		}
+	// Remove duplicates
+	let uniqueArr = [...new Set(arr)];
+
+	if (uniqueArr.length < 2) return -Infinity;
+
+	// Sort descending
+	uniqueArr.sort((a, b) => b - a);
+
+	return uniqueArr[1];
+}
 
 		// function Main() {
 			var n = prompt("Enter the number of elements");
