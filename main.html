@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
 	<link rel="stylesheet" href="styles.css">
 </head>
@@ -9,22 +7,22 @@
 <body>	
 	<script>
 		function secondHighest(arr) {
-			//Write your code here
-	if (arr.length < 2) return -Infinity;
+			if (arr.length < 2) return -Infinity;
 
-	// Convert input to numbers
-	arr = arr.map(Number);
+			// Convert all elements to numbers
+			arr = arr.map(Number);
 
-	// Remove duplicates
-	let uniqueArr = [...new Set(arr)];
+			// Remove duplicates
+			let uniqueArr = [...new Set(arr)];
 
-	if (uniqueArr.length < 2) return -Infinity;
+			if (uniqueArr.length < 2) return -Infinity;
 
-	// Sort descending
-	uniqueArr.sort((a, b) => b - a);
+			// Sort in descending order
+			uniqueArr.sort((a, b) => b - a);
 
-	return uniqueArr[1];
-}
+			// Return the second highest
+			return uniqueArr[1];
+		}
 
 		// function Main() {
 			var n = prompt("Enter the number of elements");
@@ -33,13 +31,10 @@
 				arr[i] = prompt("Enter element " + (i+1));
 			}
 			alert(secondHighest(arr));
-		}
+		// }
 		Main();
 	</script>
 
-    <script type="text/javascript" src="./script.js">
-</script>
-
+    <script type="text/javascript" src="./script.js"></script>
 </body>
-
 </html>
