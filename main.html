@@ -10,29 +10,36 @@
 			if (arr.length < 2) return -Infinity;
 
 			// Convert all elements to numbers
-			arr = arr.map(Number);
+			for (let i = 0; i < arr.length; i++) {
+		        arr[i] = Number(arr[i]);
+		    }
 
-			// Remove duplicates
-			let uniqueArr = [...new Set(arr)];
+			let first = -Infinity;
+		    let second = -Infinity;
 
-			if (uniqueArr.length < 2) return -Infinity;
 
-			// Sort in descending order
-			uniqueArr.sort((a, b) => b - a);
+			for (let i = 0; i < arr.length; i++) {
+		        if (arr[i] > first) {
+		            second = first;
+		            first = arr[i];
+		        } else if (arr[i] > second && arr[i] < first) {
+		            second = arr[i];
+		        }
+		    }
 
-			// Return the second highest
-			return uniqueArr[1];
+			if (second === -Infinity) return -Infinity;
+			    return second;
 		}
 
-		// function Main() {
+		 function Main() {
 			var n = prompt("Enter the number of elements");
 			var arr = [];
 			for (var i = 0; i < n; i++) {
 				arr[i] = prompt("Enter element " + (i+1));
 			}
-			alert(secondHighest(arr));
-		// }
-		Main();
+			 alert(secondHighest(arr));
+		 }
+	//	Main();
 	</script>
 
     <script type="text/javascript" src="./script.js"></script>
